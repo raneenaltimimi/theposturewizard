@@ -5,7 +5,7 @@ twine
 wheel>=0.29
 
 # data science
-numpy
+numpy==1.17.3
 pandas
 scikit-learn
 
@@ -29,6 +29,9 @@ memoized-property
 termcolor
 
 # wrnch
-numpy==1.16.3
-Pillow==6.0.0
+<<<<<<< HEAD
 opencv-python==4.1.0.25
+=======
+Pillow==6.2.0
+wrcloud-1.1.0-py3-none-any.whl
+>>>>>>> 3820ddcee6992af0f210fc0c1e94cbe384f55343
