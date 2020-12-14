@@ -58,3 +58,6 @@ pypi_test:
 
 pypi:
 	@twine upload dist/* -u lologibus2
+
+streamlit:
+	-@streamlit run dummy_app.py
