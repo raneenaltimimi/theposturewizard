@@ -1,4 +1,5 @@
 import requests
+import pandas as pd
 from re import search
 import json
 import random
@@ -54,7 +55,7 @@ def pipe(path, model):
     return label
 
 
-# exercise
+# get exercises with API
 
 def get_token(username,password):
     response = requests.post('http://204.235.60.194/consumer/login', data={'username':username, 'password':password})
@@ -96,6 +97,26 @@ def get_pictures(exercices):
                 my_list.append(v)
         my_list_full.append(my_list)
     return my_list_full
+
+
+# get exercises with csv
+
+def get_exercises(apparatus, body_part):
+    # get csv
+    df = pd.read_csv('Exercises - Sheet1.csv')
+
+    # get stretch exercise
+    stretchs = df[(df['Exercise_type'] == 'Stretch')\
+                   & (df['Body_part'] == body_part)]
+    stretch = stretchs.loc[np.random.choice(stretchs.index,1,replace=False)].reset_index(drop=True)
+
+    # get strength exercise
+    strengths = df[(df['Exercise_type'] == 'Strength')\
+                   & (df['Body_part'] == body_part)\
+                   & (df['Apparatus'] == apparatus)]
+    strength = strengths.loc[np.random.choice(strengths.index,2,replace=False)].reset_index(drop=True)
+
+    return stretch.loc[0], strength.loc[0], strength.loc[1]
 
 
 if __name__ == "__main__":
