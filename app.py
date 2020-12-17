@@ -99,7 +99,7 @@ if st.button('Wizard evaluation') or session_state.get_prediction:
         if pred == "kyphosis":
             st.write("**Customize your plan! : **")
 
-            bodypart = st.selectbox('Select a bodypart you want to work on', ['Shoulder', 'Neck'])
+            bodypart = st.selectbox('Select a bodypart you want to work on', ['Neck','Shoulder'])
 
             if bodypart == 'Shoulder':
                 apparatus = st.selectbox('Select an equipement', ['Bodyweight', 'Dumbbells', 'Bands'])
