@@ -87,6 +87,7 @@ if uploaded_file:
         session_state.get_prediction = False
         session_state.file_name = uploaded_file.name
 
+st.markdown(""" # Step Two """)
 
 if st.button('Wizard evaluation') or session_state.get_prediction:
     session_state.get_prediction = True
@@ -143,7 +144,7 @@ if st.button('Wizard evaluation') or session_state.get_prediction:
         st.write("Make sure you upload your picture!")
 
 else:
-    st.markdown(""" # Step Two """)
+    #st.markdown(""" # Step Two """)
     st.write('Hit `Wizard evaluation` to classify your posture!!')
 
 
