@@ -87,7 +87,7 @@ if uploaded_file:
         session_state.get_prediction = False
         session_state.file_name = uploaded_file.name
 
-st.markdown(""" # Step Two """)
+
 
 if st.button('Wizard evaluation') or session_state.get_prediction:
     session_state.get_prediction = True
@@ -98,6 +98,7 @@ if st.button('Wizard evaluation') or session_state.get_prediction:
         st.write(f"The Wizard classified your posture as {pred}")
 
         if pred == "kyphosis":
+            st.markdown(""" # Step Two """)
             st.write("**Customize your plan! : **")
 
             bodypart = st.selectbox('Select a bodypart you want to work on', ['Neck','Shoulder'])
@@ -134,7 +135,7 @@ if st.button('Wizard evaluation') or session_state.get_prediction:
                 # strength 2
                 info(strength2)
             else:
-                st.markdown(""" # Step Three """)
+                #st.markdown(""" # Step Three """)
                 st.write('Hit `Get your plan` to start working on your posture!')
 
         else:
