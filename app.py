@@ -70,7 +70,14 @@ session_state = get(**params)
 '''
 # The Posture Wizard
 '''
+st.markdown(""" Find the best exercises to fix your upper body part posture """)
 
+st.markdown("""
+            - Upload a side picture of yourself
+            - Our wizard will then determine your posture
+            - Finally you will be suggested exercises based on your posture
+            """ )
+st.markdown(""" # Step One """)
 st.markdown("""Upload a side view of your posture""")
 
 uploaded_file = get_input_img()
@@ -126,6 +133,7 @@ if st.button('Wizard evaluation') or session_state.get_prediction:
                 # strength 2
                 info(strength2)
             else:
+                st.markdown(""" # Step Three """)
                 st.write('Hit `Get your plan` to start working on your posture!')
 
         else:
@@ -135,6 +143,7 @@ if st.button('Wizard evaluation') or session_state.get_prediction:
         st.write("Make sure you upload your picture!")
 
 else:
+    st.markdown(""" # Step Two """)
     st.write('Hit `Wizard evaluation` to classify your posture!!')
 
 
